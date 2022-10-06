@@ -1,0 +1,13 @@
+Package: npvBuild
+Type: Package
+Title: Script building tools
+Version: 0.1.0
+Authors@R: 
+    person("Dan", "Studer", , "studer.dan@outlook.com", role = c("aut", "cre"))
+Description: Tools that were used to build the npv-script.
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 7.2.1
+Imports: 
+    dplyr,
+    ggplot2
