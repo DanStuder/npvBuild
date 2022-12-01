@@ -7,12 +7,13 @@
 #' @param prob Auftretenswahrscheinlichkeit Pi
 #' @param tail Indiziert die Richtung der Hypothese
 #' @param cumul Indiziert, ob Punkt- oder kumulative Wahrscheinlichkeit ausgegeben werden soll
-#' @importFrom ggplot2 geom_bar aes theme element_text
+#' @param scale Benutzerdefinierte x-Achse
+#' @importFrom ggplot2 geom_bar aes theme element_text scale_x_continuous
 #' @importFrom stats dbinom
 #' @export
 
 
-binom.plot = function(x, size, prob, tail = c("less", "greater", "two.sided"), cumul = c("point", "cumul")) {
+binom.plot = function(x, size, prob, tail = c("less", "greater", "two.sided"), cumul = c("point", "cumul"), scale = NULL) {
 
   # Warnings
   if(prob != 0.5 && tail == "two.sided"){
@@ -53,12 +54,19 @@ binom.plot = function(x, size, prob, tail = c("less", "greater", "two.sided"), c
   colores[colvec] = "#703342" # overwrite the elements of colores that are in colvec with a dark red
 
   # Plot data
-  ggplot(data = binom_data) +
+  binom = ggplot(data = binom_data) +
     geom_bar(aes(x = n,
                  y = p),
              stat = "identity",
              fill = colores) +
     theme(axis.title.y = element_text(angle = 0, vjust = 0.5),
           text = element_text(size = 15))
+
+  if(!is.null(scale)){
+    binom = binom +
+      scale_x_continuous(breaks = scale)
+  }
+
+  return(binom)
 
 }

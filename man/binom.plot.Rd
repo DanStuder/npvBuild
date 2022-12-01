@@ -9,7 +9,8 @@ binom.plot(
   size,
   prob,
   tail = c("less", "greater", "two.sided"),
-  cumul = c("point", "cumul")
+  cumul = c("point", "cumul"),
+  scale = NULL
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ binom.plot(
 \item{tail}{Indiziert die Richtung der Hypothese}
 
 \item{cumul}{Indiziert, ob Punkt- oder kumulative Wahrscheinlichkeit ausgegeben werden soll}
+
+\item{scale}{Benutzerdefinierte x-Achse}
 }
 \description{
 Plottet die Binomialverteilung
