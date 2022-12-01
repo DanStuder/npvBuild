@@ -42,7 +42,7 @@ binom.plot = function(x, size, prob, tail = c("less", "greater", "two.sided"), c
   two.sided = c(less, greater)
 
   colvec = switch(cumul,
-                  "point" = x,
+                  "point" = x+1,
                   "cumul" = switch(tail,
                                    "less" = less,
                                    "greater" = less,
