@@ -7,9 +7,13 @@ Authors@R:
 Description: Tools that were used to build the npv-script.
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
+Depends: R (>= 4.1.0)
 Imports: 
     dplyr,
     ggplot2,
+    here,
+    huxtable,
+    readxl,
     rlang,
     scales
