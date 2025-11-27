@@ -1,7 +1,7 @@
 Package: npvBuild
 Type: Package
 Title: Script building tools
-Version: 0.2.3
+Version: 0.2.4
 Authors@R: 
     person("Dan", "Studer", , "studer.dan@outlook.com", role = c("aut", "cre"))
 Description: Tools that were used to build the npv-script.
@@ -16,4 +16,5 @@ Imports:
     huxtable,
     readxl,
     rlang,
-    scales
+    scales,
+    tibble
