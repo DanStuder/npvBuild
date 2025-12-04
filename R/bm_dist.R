@@ -5,7 +5,6 @@
 #' @param data Output von `npvTools::exact_bm_dist`
 #' @importFrom dplyr mutate
 #' @importFrom ggplot2 ggplot geom_bar aes labs theme element_blank element_line element_text
-#' @importFrom rlang .data
 #' @importFrom utils globalVariables
 #'
 #' @export
@@ -25,8 +24,8 @@ bm_dist <- function(data) {
   data |>
     dplyr::mutate(W = base::round(W, 3)) |>
     ggplot2::ggplot(ggplot2::aes(
-                    x = base::factor(.data$W),
-                    y = rlang::.data$n_perm)) +
+                    x = base::factor(W),
+                    y = n_perm)) +
     ggplot2::geom_col(fill = "steelblue") +
     ggplot2::labs(title = "Exakte Verteilung von \U1D44A",
                   x = "\U1D44A",
