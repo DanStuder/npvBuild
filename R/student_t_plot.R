@@ -24,6 +24,10 @@
 #'   und damit, ob der kritische Bereich im oberen, unteren oder in beiden
 #'   Verteilungsschwänzen liegt.
 #'
+#' @importFrom ggplot2 ggplot geom_ribbon aes geom_point scale_colour_manual  geom_vline annotate labs theme_minimal theme element_text
+#' @importFrom tibble tibble
+#' @importFrom utils globalVariables
+#'
 #' @return Ein \code{ggplot}-Objekt, das die t-Verteilung mit farbig
 #'   markierten Beibehaltungs- und Verwerfungsbereichen sowie dem
 #'   empirischen Prüfwert \code{W} darstellt.

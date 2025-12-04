@@ -14,6 +14,7 @@
 #' @importFrom here here
 #' @importFrom readxl read_excel
 #' @importFrom huxtable as_hux set_col_width set_font set_font_size set_align
+#' @importFrom utils globalVariables
 #'
 #' @export
 #'
