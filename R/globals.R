@@ -1,3 +1,3 @@
 utils::globalVariables(c(
-  "W", "x", "y", "ymin", "ymax_retain", "ymax_reject", "region", "everywhere"
+  "W", "x", "y", "ymin", "ymax_retain", "ymax_reject", "region", "everywhere", "n_perm"
 ))
