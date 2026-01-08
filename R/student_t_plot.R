@@ -115,7 +115,7 @@ central.t.plot <- function(
       ggplot2::aes(x = x, y = y, colour = region)
     ) +
     ggplot2::scale_colour_manual(
-      name = "\U1D43B\U2080",
+      # name = "\U1D43B\U2080",
       values = c("Beibehalten" = "steelblue", "Verwerfen" = "#703342")
     ) +
     ggplot2::geom_vline(xintercept = W, linewidth = 1) +
@@ -123,12 +123,14 @@ central.t.plot <- function(
       "text",
       x = W + xlab_offset,
       y = ymax * (1 - y_offset_factor),
-      label = base::paste0("\U1D461 = ", base::round(W, 3)),
+      label = paste("italic(t) ==", W),
+      parse = T,
       hjust = 0
     ) +
     ggplot2::labs(
-      x = "\U1D461-Wert",
-      y = "\U1D443(\U1D461)"
+      x = expression(italic(t) * "-Wert"),
+      y = expression(italic(P(t))),
+      color = expression(italic(H)[0])
     ) +
     ggplot2::theme_minimal() +
     ggplot2::theme(

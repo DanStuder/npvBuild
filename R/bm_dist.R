@@ -27,8 +27,8 @@ bm_dist <- function(data) {
                     x = base::factor(W),
                     y = n_perm)) +
     ggplot2::geom_col(fill = "steelblue") +
-    ggplot2::labs(title = "Exakte Verteilung von \U1D44A",
-                  x = "\U1D44A",
+    ggplot2::labs(title = expression(paste("Exakte Verteilung von ", italic(W))),
+                  x = expression(italic(W)),
                   y = "H\U00E4ufigkeit") +
     ggplot2::theme(panel.background = ggplot2::element_blank(),
                    panel.grid.major.x = ggplot2::element_blank(),
