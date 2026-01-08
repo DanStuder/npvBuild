@@ -17,42 +17,48 @@
 
 # z.plot = function(z, tail = c("less", "greater", "two.sided"), xmax = 4, xlab = (xmax/10), ylab = 0.001) {
 
-norm.plot = function(emp, mean, var, tail = c("less", "greater", "two.sided"), xlab = (xmax/10), ylab = 0.001) {
-
-
+norm.plot = function(
+  emp,
+  mean,
+  var,
+  tail = c("less", "greater", "two.sided"),
+  xlab = (xmax / 10),
+  ylab = 0.001
+) {
   # Define some objects
   sd = sqrt(var)
-  norm.crit = switch(tail,
-                     less = mean - 1.645*sd,
-                     greater = mean + 1.645*sd,
-                     two.sided = c((100 - 1.96*sd), (100 + 1.96*sd))) # set z-crit
+  norm.crit = switch(
+    tail,
+    less = mean - 1.645 * sd,
+    greater = mean + 1.645 * sd,
+    two.sided = c((100 - 1.96 * sd), (100 + 1.96 * sd))
+  ) # set z-crit
 
-  xmax = mean + 5*sd
-  xmin = mean - 5*sd
+  xmax = mean + 5 * sd
+  xmin = mean - 5 * sd
 
   x = c(xmin, xmax)
   data = data.frame(x = x)
 
   # base plot with objects used in any case of "tail"
   base = ggplot(data.frame(x = x), aes(x)) +
-    stat_function(fun = dnorm,
-                  args = list(mean, sd)) +
-    geom_vline(xintercept = emp,
-               size = 1) +
-    annotate("text",
-             x = emp + xlab,
-             y = 0.05 + ylab,
-             label = paste0('emp = ', round(emp,4))) +
+    stat_function(fun = dnorm, args = list(mean, sd)) +
+    geom_vline(xintercept = emp, size = 1) +
+    annotate(
+      "text",
+      x = emp + xlab,
+      y = 0.05 + ylab,
+      label = paste0('emp = ', round(emp, 4))
+    ) +
     # set axis labels
-    labs(x = "norm",
-         y = "p") +
+    labs(x = "norm", y = expression(italic(p))) +
     theme_minimal() +
-    theme(axis.title.y = element_text(angle = 0, vjust = 0.5),
-          panel.grid.minor = element_blank())
+    theme(
+      axis.title.y = element_text(angle = 0, vjust = 0.5),
+      panel.grid.minor = element_blank()
+    )
 
   base
-
-
 
   # base = ggplot(data = data, aes(x)) +
   #
@@ -107,16 +113,3 @@ norm.plot = function(emp, mean, var, tail = c("less", "greater", "two.sided"), x
   #                   xlim = c(-z.crit, -xmax))
   # }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
