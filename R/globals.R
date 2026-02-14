@@ -1,3 +1,21 @@
 utils::globalVariables(c(
-  "W", "x", "y", "ymin", "ymax_retain", "ymax_reject", "region", "everywhere", "n_perm"
+  "W",
+  "x",
+  "y",
+  "ymin",
+  "ymax_retain",
+  "ymax_reject",
+  "region",
+  "everywhere",
+  "n_perm",
+  "step_val",
+  "inc_f1",
+  "inc_f2",
+  "f1",
+  "f2",
+  "label_num",
+  "val",
+  "freq",
+  "group",
+  "value"
 ))

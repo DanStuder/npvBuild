@@ -1,3 +1,58 @@
+#' Visualisierung des Kolmogorov-Smirnov-Tests
+#'
+#' Erstellt einen Plot, der die empirischen Verteilungsfunktionen zweier Gruppen
+#' gegeneinander abträgt, um die Teststatistik des Kolmogorov-Smirnov-Tests
+#' visuell darzustellen.
+#'
+#' ACHTUNG: Dokumentation ist KI-generiert und könnte Fehler enthalten. Muss noch
+#' überarbeitet werden. Funktion ist noch nicht fertig und wird deshalb noch
+#' nicht exportiert.
+#'
+#' @param data Ein Dataframe, der die zu analysierenden Daten enthält. Er muss
+#'   mindestens zwei Spalten aufweisen: `value` (numerische Werte) und `group`
+#'   (ein Faktor mit genau zwei Stufen).
+#' @param alternative Ein Zeichenvektor, der die Art der Alternativhypothese bestimmt.
+#'   Muss einer der folgenden Werte sein: `"two.sided"` (Zweiseitig),
+#'   `"greater"` (Einseitig grösser) oder `"less"` (Einseitig kleiner).
+#'   Dies beeinflusst, welche Distanz für die Berechnung der Parallelen verwendet wird.
+#' @param plot_parallels Steuert, welche parallelen Hilfslinien zur Diagonalen
+#'   gezeichnet werden sollen. Optionen sind `"all"` (alle), `"top"` (nur oben),
+#'   `"bottom"` (nur unten) oder `"none"` (keine).
+#' @param D12 Logisch. Gibt an, ob der Pfeil für die maximale absolute Differenz
+#'   (D12, zweiseitig) eingezeichnet werden soll. Standard ist `TRUE`.
+#' @param D12plus Logisch. Gibt an, ob der Pfeil für die maximale positive Differenz
+#'   (D12+, einseitig) eingezeichnet werden soll. Standard ist `FALSE`.
+#' @param D12minus Logisch. Gibt an, ob der Pfeil für die maximale negative Differenz
+#'   (D12-, einseitig) eingezeichnet werden soll. Standard ist `FALSE`.
+#'
+#' @return Ein `ggplot2`-Objekt, das den Plot der Verteilungsfunktionen zeigt.
+#'
+#' @details
+#' Die Funktion berechnet die empirischen kumulativen Verteilungsfunktionen
+#' für beide Gruppen und stellt sie in einem Koordinatensystem dar ($F_1$ vs $F_2$).
+#' Die Abweichungen von der Diagonalen repräsentieren die Differenzen zwischen
+#' den Verteilungen.
+#'
+#' @examples
+#' \dontrun{
+#' # Beispiel-Daten erstellen
+#' data <- data.frame(
+#'   value = c(19, 6, 5, 41, 25, 22, 12, 18, 15, 14, 21),
+#'   group = factor(c(rep("Gruppe 1", 6), rep("Gruppe 2", 5)))
+#' )
+#'
+#' # Plot erstellen
+#' ks.plot(
+#'   data,
+#'   alternative = "two.sided", plot_parallels = "all",
+#'   plot_parallels = "top",
+#'   D12 = TRUE,
+#'   D12plus = TRUE,
+#'   D12minus = TRUE)
+#' }
+#'
+#' @keywords internal
+
 data <- data.frame(
   value = c(19, 6, 5, 41, 25, 22, 12, 18, 15, 14, 21),
   group = factor(c(rep("Gruppe 1", 6), rep("Gruppe 2", 5)))
@@ -7,7 +62,6 @@ data <- data.frame(
   value = c(29, 24, 38, 34, 15, 41, 42),
   group = factor(c(rep("Gruppe 1", 4), rep("Gruppe 2", 3)))
 )
-
 
 ks.plot <- function(
   data,
@@ -78,7 +132,7 @@ ks.plot <- function(
 
   #### Parallele oben
   parallel_top <- ggplot2::geom_segment(
-    data = distance,
+    data = row_d12,
     ggplot2::aes(
       x = 0,
       xend = 1 - .data[[distance_col]],
@@ -90,7 +144,7 @@ ks.plot <- function(
 
   #### Parallele unten
   parallel_bottom <- ggplot2::geom_segment(
-    data = distance,
+    data = row_d12,
     ggplot2::aes(
       x = .data[[distance_col]],
       xend = 1,
