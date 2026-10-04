@@ -6,48 +6,59 @@ export(central.t.plot)
 export(chi.plot)
 export(kendall.plot)
 export(norm.plot)
+export(read_tbl)
 export(wp_dist)
 export(xl2hux)
 export(z.plot)
-importFrom(dplyr,across)
-importFrom(dplyr,everything)
-importFrom(dplyr,if_else)
-importFrom(dplyr,mutate)
-importFrom(dplyr,slice)
-importFrom(ggplot2,aes)
-importFrom(ggplot2,annotate)
-importFrom(ggplot2,element_blank)
-importFrom(ggplot2,element_line)
-importFrom(ggplot2,element_text)
-importFrom(ggplot2,geom_area)
-importFrom(ggplot2,geom_bar)
-importFrom(ggplot2,geom_col)
-importFrom(ggplot2,geom_point)
-importFrom(ggplot2,geom_ribbon)
-importFrom(ggplot2,geom_vline)
-importFrom(ggplot2,ggplot)
-importFrom(ggplot2,labs)
-importFrom(ggplot2,scale_color_manual)
-importFrom(ggplot2,scale_colour_manual)
-importFrom(ggplot2,scale_x_continuous)
-importFrom(ggplot2,scale_y_continuous)
-importFrom(ggplot2,stat_function)
-importFrom(ggplot2,theme)
-importFrom(ggplot2,theme_minimal)
+importFrom(dplyr,
+  across,
+  everything,
+  if_else,
+  mutate,
+  slice
+)
+importFrom(ggplot2,
+  aes,
+  annotate,
+  element_blank,
+  element_line,
+  element_text,
+  geom_area,
+  geom_bar,
+  geom_col,
+  geom_point,
+  geom_ribbon,
+  geom_vline,
+  ggplot,
+  labs,
+  scale_color_manual,
+  scale_colour_manual,
+  scale_x_continuous,
+  scale_y_continuous,
+  stat_function,
+  theme,
+  theme_minimal
+)
 importFrom(here,here)
-importFrom(huxtable,as_hux)
-importFrom(huxtable,set_align)
-importFrom(huxtable,set_col_width)
-importFrom(huxtable,set_font)
-importFrom(huxtable,set_font_size)
+importFrom(huxtable,
+  as_hux,
+  set_align,
+  set_col_width,
+  set_font,
+  set_font_size
+)
 importFrom(readxl,read_excel)
 importFrom(rlang,.data)
 importFrom(scales,number_format)
-importFrom(stats,dbinom)
-importFrom(stats,dchisq)
-importFrom(stats,dnorm)
-importFrom(stats,qchisq)
-importFrom(stats,setNames)
+importFrom(stats,
+  dbinom,
+  dchisq,
+  dnorm,
+  qchisq,
+  setNames
+)
 importFrom(tibble,tibble)
-importFrom(utils,globalVariables)
-importFrom(utils,tail)
+importFrom(utils,
+  globalVariables,
+  tail
+)
